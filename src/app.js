@@ -1,13 +1,13 @@
-import 'normalize.css/normalize.css';
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
+import AppRouter from './routers/AppRouter';
+import configureStore from './store/configureStore';
 import { addExpense } from './actions/expenses';
 import { setTextFilter } from './actions/filters';
-import AppRouter from './routers/AppRouter';
 import getVisibleExpenses from './selectors/expenses';
-import configureStore from './store/configureStore';
+import 'normalize.css/normalize.css';
 import './styles/styles.scss';
-import { Provider } from 'react-redux';
 
 const store = configureStore();
 
@@ -19,10 +19,10 @@ const state = store.getState();
 const visibleExpenses = getVisibleExpenses(state.expenses, state.filters);
 console.log(visibleExpenses);
 
-const app = (
+const jsx = (
 	<Provider store={store}>
 		<AppRouter />
 	</Provider>
 );
 
-ReactDOM.render(app, document.getElementById('app'));
+ReactDOM.render(jsx, document.getElementById('app'));
