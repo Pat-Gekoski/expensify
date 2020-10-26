@@ -2,10 +2,7 @@
 # Created by https://www.toptal.com/developers/gitignore/api/react,vscode,macos
 # Edit at https://www.toptal.com/developers/gitignore?templates=react,vscode,macos
 
-public/bundle.js
-public/bundle.js.map
-public/styles.css
-public/styles.css.map
+public/dist/
 
 ### macOS ###
 # General
