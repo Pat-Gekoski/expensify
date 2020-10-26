@@ -1,14 +1,13 @@
 const path = require('path');
 
-module.exports = (env) => {
+module.exports = (env, argv) => {
 	const isProduction = env === 'production';
 	const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
-	console.log(env);
 	return {
 		entry: './src/app.js',
 		output: {
-			path: path.join(__dirname, 'public', 'dist' ),
+			path: path.join(__dirname, 'public', 'dist'),
 			filename: 'bundle.js',
 		},
 		mode: 'development',
@@ -45,7 +44,7 @@ module.exports = (env) => {
 			],
 		},
 		plugins: [new MiniCssExtractPlugin({ filename: 'styles.css' })],
-		devtool: isProduction ? 'source-map' : 'inline-source-map',
+		devtool: argv.mode === 'production' ? 'source-map' : 'inline-source-map',
 		devServer: {
 			contentBase: path.join(__dirname, 'public'),
 			historyApiFallback: true,
