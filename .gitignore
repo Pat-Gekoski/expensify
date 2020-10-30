@@ -3,6 +3,8 @@
 # Edit at https://www.toptal.com/developers/gitignore?templates=react,vscode,macos
 
 public/dist/
+.env.test
+.env.development
 
 ### macOS ###
 # General
